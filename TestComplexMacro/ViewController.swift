@@ -10,9 +10,15 @@ import UIKit
 
 class ViewController: UIViewController {
 
+	@IBOutlet weak var objcMacroLabel: UILabel!
+	@IBOutlet weak var swiftFunctionLabel: UILabel!
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view, typically from a nib.
+
+		objcMacroLabel.backgroundColor = TestComplexMacro.colorFromMacro(0x19C5FF00)
+		swiftFunctionLabel?.backgroundColor = hexColor(0x19C5FF00)
 	}
 
 	override func didReceiveMemoryWarning() {
@@ -23,3 +29,11 @@ class ViewController: UIViewController {
 
 }
 
+func hexColor(c: Int) -> UIColor {
+	let red = CGFloat(Float(((c>>24)&0xFF))/255.0)
+	let green = CGFloat(Float(((c>>16)&0xFF))/255.0)
+	let blue = CGFloat(Float(((c>>8)&0xFF))/255.0)
+	let alpha = CGFloat(1.0)
+	
+	return UIColor(red: red, green: green, blue: blue, alpha: alpha)
+}
