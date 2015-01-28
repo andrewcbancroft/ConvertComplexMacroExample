@@ -31,10 +31,10 @@ class ViewController: UIViewController {
 
 }
 
-func hexColor(c: Int, alpha: Float) -> UIColor {
-    let red = CGFloat(Float(((c>>24)&0xFF))/255.0)
-    let green = CGFloat(Float(((c>>16)&0xFF))/255.0)
-    let blue = CGFloat(Float(((c>>8)&0xFF))/255.0)
+func hexColor(color: Int, alpha: Float) -> UIColor {
+    let red = CGFloat(Float(((color>>24) & 0xFF)) / 255.0)
+    let green = CGFloat(Float(((color>>16) & 0xFF)) / 255.0)
+    let blue = CGFloat(Float(((color>>8) & 0xFF)) / 255.0)
     let alpha = CGFloat(alpha)
     
     return UIColor(red: red, green: green, blue: blue, alpha: alpha)
