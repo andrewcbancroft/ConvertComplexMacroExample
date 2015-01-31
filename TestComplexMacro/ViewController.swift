@@ -16,8 +16,8 @@ class ViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view, typically from a nib.
-        objcMacroLabel.backgroundColor = TestComplexMacro.colorFromMacro(0x19C5FF00, alpha: 1.0)
-        swiftFunctionLabel.backgroundColor = hexColor(0x19C5FF00, 1.0)
+        objcMacroLabel.backgroundColor = TestComplexMacro.colorFromMacro(0x19C5FFAA, alpha: 1.0)
+        swiftFunctionLabel.backgroundColor = UIColorFromRGB(0x19C5FFAA, 1.0)
         
         println(objcMacroLabel.backgroundColor)
         println(swiftFunctionLabel.backgroundColor)
@@ -31,10 +31,10 @@ class ViewController: UIViewController {
 
 }
 
-func hexColor(color: Int, alpha: Float) -> UIColor {
-    let red = CGFloat(Float(((color>>24) & 0xFF)) / 255.0)
-    let green = CGFloat(Float(((color>>16) & 0xFF)) / 255.0)
-    let blue = CGFloat(Float(((color>>8) & 0xFF)) / 255.0)
+func UIColorFromRGB(rgb: Int, alpha: Float) -> UIColor {
+	let red = CGFloat(Float(((rgb>>16) & 0xFF)) / 255.0)
+	let green = CGFloat(Float(((rgb>>8) & 0xFF)) / 255.0)
+	let blue = CGFloat(Float(((rgb>>0) & 0xFF)) / 255.0)
     let alpha = CGFloat(alpha)
     
     return UIColor(red: red, green: green, blue: blue, alpha: alpha)

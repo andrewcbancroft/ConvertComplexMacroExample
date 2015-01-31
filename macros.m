@@ -10,8 +10,8 @@
 
 @implementation TestComplexMacro
 
-+ (UIColor *)colorFromMacro:(int)c alpha:(float)a {
-    return HEXCOLOR(c, a);
++ (UIColor *)colorFromMacro:(int)rgb alpha:(float)alpha {
+    return UIColorFromRGB(rgb, alpha);
 }
 
 @end

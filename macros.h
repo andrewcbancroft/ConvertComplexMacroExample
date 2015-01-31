@@ -1,10 +1,15 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-#define HEXCOLOR(c, a) [UIColor colorWithRed:((c>>24)&0xFF)/255.0 green:((c>>16)&0xFF)/255.0 blue:((c>>8)&0xFF)/255.0 alpha:a]
+#define UIColorFromRGB(rgbValue, alphaValue) \
+[UIColor colorWithRed:((float)((rgbValue >> 16) & 0xFF))/255.0 \
+green:((float)((rgbValue >> 8) & 0xFF))/255.0 \
+blue:((float)((rgbValue >> 0) & 0xFF))/255.0 \
+alpha:alphaValue]
+
 
 @interface TestComplexMacro : NSObject
 
-+ (UIColor *)colorFromMacro:(int)c alpha:(float)a;
++ (UIColor *)colorFromMacro:(int)rgb alpha:(float)alpha;
 
 @end
